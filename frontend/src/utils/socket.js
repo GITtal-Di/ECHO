@@ -1,16 +1,32 @@
 import { io } from 'socket.io-client';
 
-const SOCKET_URL = import.meta.env.VITE_BACKEND_URL;
+// Get backend URL - use environment variable or fallback to localhost
+const getBackendUrl = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+  if (!backendUrl) {
+    console.warn('⚠️ VITE_BACKEND_URL not set, using localhost:5000');
+    return 'http://localhost:5000';
+  }
+
+  return backendUrl;
+};
 
 let socket = null;
 
 export const initSocket = () => {
   if (!socket) {
-    socket = io(SOCKET_URL, {
+    const backendUrl = getBackendUrl();
+    console.log('🔌 Connecting to WebSocket:', backendUrl);
+
+    socket = io(backendUrl, {
       transports: ['websocket', 'polling'],
       reconnection: true,
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
+      reconnectionDelayMax: 5000,
+      secure: backendUrl.startsWith('https'),
+      rejectUnauthorized: false
     });
 
     socket.on('connect', () => {
