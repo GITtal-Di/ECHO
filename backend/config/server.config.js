@@ -1,7 +1,12 @@
 // Server Configuration
+const CORS_ORIGINS = process.env.CORS_ORIGIN 
+  ? process.env.CORS_ORIGIN.split(',').map(origin => origin.trim())
+  : ['http://localhost:5173'];
+
 module.exports = {
   PORT: process.env.PORT || 5000,
-  CORS_ORIGIN: process.env.CORS_ORIGIN || 'http://localhost:5173',
+  CORS_ORIGIN: CORS_ORIGINS,
+  NODE_ENV: process.env.NODE_ENV || 'development',
   
   // AI Integration Endpoints (to be implemented by teammate)
   AI_SERVICE: {
