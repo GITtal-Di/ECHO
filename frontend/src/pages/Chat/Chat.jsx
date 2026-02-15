@@ -8,7 +8,7 @@ import ImageModal from '../../components/ImageModal/ImageModal';
 import './Chat.css';
 
 // Backend API URL
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Chat = () => {
   const navigate = useNavigate();
