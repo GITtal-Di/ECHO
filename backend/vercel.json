@@ -1,24 +1,8 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "app.js",
-            "use": "@vercel/node",
-            "config": {
-                "maxDuration": 60
-            }
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "app.js"
-        }
-    ],
+    "buildCommand": "npm install",
+    "outputDirectory": "./",
     "env": {
-        "NODE_ENV": "production",
-        "PORT": "3000",
-        "CORS_ORIGIN": "@CORS_ORIGIN",
-        "REDIS_ENABLED": "false"
+        "NODE_ENV": "production"
     }
 }
