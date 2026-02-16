@@ -1,4 +1,3 @@
-app.js
 config/
 controllers/
 models/
@@ -9,7 +8,7 @@ test-*.js
 Procfile
 README.md
 *.md
-node_modules/
 .env
 .env.local
+
 
