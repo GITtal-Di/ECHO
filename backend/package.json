@@ -2,12 +2,11 @@
   "name": "echo-backend",
   "version": "1.0.0",
   "description": "Backend for ECHO - Anonymous Social Connector",
-  "main": "app.js",
   "engines": {
     "node": "20.x"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node api/index.js",
     "dev": "nodemon app.js",
     "test": "node test-hybrid-storage.js"
   },

@@ -1,5 +1,3 @@
 {
-    "version": 2,
-    "buildCommand": "npm install && npm prune --production",
-    "outputDirectory": "./"
+    "version": 2
 }
