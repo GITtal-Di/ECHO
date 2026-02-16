@@ -5,6 +5,11 @@ models/
 routes/
 services/
 utils/
-*.md
 test-*.js
 Procfile
+README.md
+*.md
+node_modules/
+.env
+.env.local
+

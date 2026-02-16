@@ -95,4 +95,8 @@ process.on('SIGINT', async () => {
   process.exit(0);
 });
 
-module.exports = { app, io };
+// Note: For Vercel serverless deployment, API routes are in /api folder
+// This app.js is for local development only
+if (process.env.NODE_ENV !== 'production') {
+  module.exports = { app, io };
+}
