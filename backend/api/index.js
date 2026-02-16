@@ -10,18 +10,18 @@ module.exports = (req, res) => {
         return res.status(200).end();
     }
 
-    // Health check
-    if (req.url === '/health') {
-        return res.status(200).json({
-            status: 'OK',
-            message: 'Health check passed'
-        });
-    }
-
     // Root endpoint
     return res.status(200).json({
         name: 'ECHO Backend API',
         version: '1.0.0',
-        status: 'running'
+        status: 'running',
+        message: 'Backend is operational',
+        endpoints: {
+            health: 'GET /health',
+            analyze: 'POST /api/analysis/analyze',
+            analyzeStart: 'POST /api/analysis/start',
+            sentiment: 'POST /api/analysis/sentiment',
+            full: 'POST /api/analysis/full'
+        }
     });
 };
